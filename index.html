@@ -20,17 +20,34 @@
 <body>
   <div id="map"></div>
 
+  <!-- Load the Google Maps JavaScript API -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDI0rAz4YlXDDL0oianoxkAAk-7WFIP-B4&callback=initMap" async defer></script>
+
   <script>
     function initMap() {
-      var mapOptions = {
+      // Coordinates for 13 Canal View Drive, Lawrence Township, NJ
+      var location = { lat: 40.283371, lng: -74.707288 };
+
+      // Create the map centered at your location
+      var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
-        center: { lat: 40.283371, lng: -74.707288 }, // Centered on your address
+        center: location,
         mapTypeId: 'roadmap'
-      };
-      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      });
+
+      // Add real-time traffic layer
       var trafficLayer = new google.maps.TrafficLayer();
       trafficLayer.setMap(map);
+
+      // Add a custom blue dot marker
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "13 Canal View Drive",
+        icon: {
+          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        }
+      });
     }
   </script>
 </body>
