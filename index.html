@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Traffic Map</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDI0rAz4YlXDDL0oianoxkAAk-7WFIP-B4&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+      var mapOptions = {
+        zoom: 13,
+        center: { lat: 40.283371, lng: -74.707288 }, // Centered on your address
+        mapTypeId: 'roadmap'
+      };
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      var trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map);
+    }
+  </script>
+</body>
+</html>
