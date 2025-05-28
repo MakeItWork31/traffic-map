@@ -25,30 +25,15 @@
 
   <script>
     function initMap() {
-      // Coordinates for 13 Canal View Drive, Lawrence Township, NJ
-      var location = { lat: 40.283371, lng: -74.707288 };
+      // Accurate coordinates for 13 Canal View Drive, Lawrence Township, NJ
+      var location = { lat: 40.281823, lng: -74.715655 };
 
       // Create the map centered at your location
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
+        zoom: 15,
         center: location,
         mapTypeId: 'roadmap'
       });
 
       // Add real-time traffic layer
       var trafficLayer = new google.maps.TrafficLayer();
-      trafficLayer.setMap(map);
-
-      // Add a custom blue dot marker
-      var marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        title: "13 Canal View Drive",
-        icon: {
-          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-        }
-      });
-    }
-  </script>
-</body>
-</html>
