@@ -21,7 +21,7 @@
   <div id="map"></div>
 
   <!-- Load the Google Maps JavaScript API -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDI0rAz4YlXDDL0oianoxkAAk-7WFIP-B4&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 
   <script>
     function initMap() {
@@ -37,3 +37,19 @@
 
       // Add real-time traffic layer
       var trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map);
+
+      // Add a home icon marker at the location
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Home",
+        icon: {
+          url: "https://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png",
+          scaledSize: new google.maps.Size(32, 32)
+        }
+      });
+    }
+  </script>
+</body>
+</html>
