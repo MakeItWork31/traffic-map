@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Live Traffic Map with Home Icon</title>
+    <title>Live Traffic Map with Home Circle Marker</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta charset="utf-8" />
     <style>
@@ -34,25 +34,12 @@
         trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
 
-        // Add house icon marker at home location
+        // Add colored circle marker with 🏠 label
         new google.maps.Marker({
           position: homeLatLng,
           map: map,
           title: "Home",
           icon: {
-            url: "https://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png",
-            scaledSize: new google.maps.Size(32, 32)
-          }
-        });
-
-        // Refresh traffic layer every 1 minute
-        setInterval(() => {
-          console.log("Refreshing traffic layer...");
-          trafficLayer.setMap(null);
-          trafficLayer.setMap(map);
-        }, 60000); // 60,000 ms = 1 minute
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-  </body>
-</html>
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 10, // Circle size
+            fillColor: "#007BFF", // Blue color (Bootstrap blue)
