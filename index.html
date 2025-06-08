@@ -43,3 +43,25 @@
             path: google.maps.SymbolPath.CIRCLE,
             scale: 10, // Circle size
             fillColor: "#007BFF", // Blue color (Bootstrap blue)
+            fillOpacity: 1,
+            strokeWeight: 2,
+            strokeColor: "#FFFFFF"
+          },
+          label: {
+            text: "🏠",
+            fontSize: "14px",
+            color: "#FFFFFF"
+          }
+        });
+
+        // Refresh traffic layer every 1 minute
+        setInterval(() => {
+          console.log("Refreshing traffic layer...");
+          trafficLayer.setMap(null);
+          trafficLayer.setMap(map);
+        }, 60000); // 60,000 ms = 1 minute
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  </body>
+</html>
