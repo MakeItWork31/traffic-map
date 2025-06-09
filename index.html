@@ -34,13 +34,13 @@
         trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
 
-        // Add blue dot marker (consistent with Windy)
+        // Add blue dot marker (matching Windy style)
         new google.maps.Marker({
           position: homeLatLng,
           map: map,
           title: "Home",
           icon: {
-            url: "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png",
+            url: "https://maps.gstatic.com/mapfiles/api-3/images/blue_dot_circle.png",
             scaledSize: new google.maps.Size(24, 24)
           }
         });
@@ -54,5 +54,6 @@
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDI0rAz4YlXDDL0oianoxkAAk-7WFIP-B4&callback=initMap" async defer></script>
-  </body>
-</html>  
+  </body>   
+</html>
+ 
